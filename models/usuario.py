@@ -1,10 +1,12 @@
-class usuario:
-    def __init__(self, id_usuario, nombre, emaill, carrera):
-        self.id_usuario = id_usuario
+class Usuario:
+    def __init__(self, id, nombre,matricula, carrera, correo, activo = True):
+        self.id = id
         self.nombre = nombre
-        self.emaill = emaill
+        self.matricula = matricula
         self.carrera = carrera
-        self.activo = True
+        self.correo = correo
+        self.activo = activo
+       
         
     def activar (self):
         self.activo = True 
@@ -12,4 +14,4 @@ class usuario:
         self.activo = False
 
     def mostrar_info(self):
-        return f"Usuario ID: {self.id_usuario}, Nombre: {self.nombre}, Emaill: {self.emaill}, Carrera: {self.carrera}"     
+        return f"Usuario ID: {self.id}, Nombre: {self.nombre}, Matricula: {self.matricula}, Carrera: {self.carrera}, Correo: {self.correo}"     
