@@ -124,8 +124,8 @@ def ver_usuario():
                     f"ID: {usuario.id},"
                     f"Nombre: {usuario.nombre},"
                     f"Matricula: {usuario.matricula}"
-                    f"Carrera: {usuario.carrera},"
-                    f"Correo: {usuario.correo},"
+                    f"Correo: {usuario.carrera},"
+                    f"Carrera: {usuario.correo},"
                 )
                 print("--------------------------")
         print("\n Conexion exitosa a la base de datos")

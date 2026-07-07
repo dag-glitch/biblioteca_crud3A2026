@@ -1,8 +1,8 @@
 class Carrera:
 
-    def __init__(self, id, nombre):
+    def __init__(self, id, carrera):
         self.id = id
-        self.nombre = nombre
+        self.carrera = carrera
 
     def  mostrar_info (self):
         return f"Carrera ID:{self.id}, Nombre: {self.carrera}"
