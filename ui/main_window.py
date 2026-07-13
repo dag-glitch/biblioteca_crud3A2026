@@ -50,22 +50,22 @@ def main_window(page: ft.page):
                 ),
                 ft.Divider(color=ft.Colors.BLUE_GREY_700),
                 ft.ElevatedButton(
-                    text="Libros",
-                    text = ft.icons.BOOK,
+                    "Libros",
+                    icon = ft.icons.BOOK,
                     width=100,
                 ),
                 ft.ElevatedButton(
-                    text="Usuarios",
+                    "Usuarios",
                     icon=ft.Icons.PERSON,
                     width=180,
                 ),
                 ft.ElevatedButton(
-                    text="Prestamos",
+                    "Prestamos",
                     icon=ft.Icons.PERSON,
                     width=180,
                 ),
                 ft.ElevatedButton(
-                    text="Devoluciones",
+                    "Devoluciones",
                     icon=ft.Icons.PERSON,
                     width=180,
                 ),
