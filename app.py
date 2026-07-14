@@ -201,4 +201,4 @@ def eliminar_usuario():
 # if __name__ == "__main__":
 #     main()
 
-ft.app(target=main_window)                
+ft.app(target=main_window)
