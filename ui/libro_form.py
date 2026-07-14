@@ -17,9 +17,66 @@ def libro_form():
     )
 
     mensaje_input = ft.TextField(
-        label = "",
+         "",
         width=400
     )
 
-    
+    mensaje = ft.Text(
+        "",
+        color = ft.Colors.GREEN
+    )
+
+    def guardar_libro(e):
+        #Recupera los valores de los Textfirld
+        titulo = titulo_input.value
+        autor = autor_input.values
+        isbn = isbn_input.value
+
+        if titulo == "" or autor == "" or isbn== "":
+            mensaje.value = "Todos los campos son obligatorios"
+            mensaje.color = ft.Colors.RED
+        else: 
+            mensaje.value = f"Libro '{titulo}' listo para insertar"
+            print(f"Titulo: '{titulo}', Autor: '{autor}', ISBN: '{isbn}'")
+            mensaje.color = ft.colors.GREEN 
+            titulo_input.value = ""
+            autor_input.value = ""
+            isbn_input.value = ""
+
+        e.page.update()
+            
+
+
+     
+        
+
+    return ft.Container(
+        padding = 30,
+        content = ft.Column(
+            controls = [
+                ft.Text(
+                    "Registrar nuevo libro",
+                    weigth = ft.FontWeight.BOLD
+                ),
+                ft.Text(
+                    "Captura los datos basicos del libro",
+                    size = 14,
+                    color=ft.Colors.BLUE_GREY_600
+                ),
+                titulo_input,
+                autor_input,
+                isbn_input,
+
+                ft.ElevatedButton(
+                    "Registrar libro",
+                    icon=ft.Icons.SAVE,
+                    on_click = guardar_libro
+
+                )
+            ],
+            spacing = 15
+
+        )
+    )
+
 
