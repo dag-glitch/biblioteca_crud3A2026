@@ -1,14 +1,14 @@
 import flet as ft
 from ui.libro_form import libro_form
-def main_window(page: ft.page):
+def main_window(page: ft.Page):
     page.title = "Sistema de Biblioteca Universitaria"
     page.window_width = 1100
     page.window_height = 700
-    page.paddig = 0 
+    page.padding = 0 
     page.bgcolor = ft.Colors.BLUE_GREY_50
 
     #ejemplo de widget: Text
-    titulo = ft.text("Sistema de biblioteca universitaria",
+    titulo = ft.Text("Sistema de biblioteca universitaria",
                      size=24,
                      weight= ft.FontWeight.BOLD
                      )
@@ -20,19 +20,26 @@ def main_window(page: ft.page):
     )
     #Widget container
     contenido = ft.Container(
-        content = ft.Column(
+        padding = 30,
+        expand = True
+    )
+
+    def inicio():
+        return ft.Column(
             controls = [
                 titulo,
                 subtitulo
             ],
             spacing = 10,
-        ),
-        padding = 30,
-        expand = True
-    )
+        )    
+    def mostrar_inicio(e=None):
+        contenido.content = inicio()
+        page.update()
+        
+
     #reacciona al click del boton de libros en el menu lateral
-    def insertar_libro(e):
-        contenido.content = libro_form()
+    def mostrar_insertar_libro(e=None):
+        contenido.content = libro_form(mostrar_inicio)
         page.update()
 
 
@@ -55,10 +62,16 @@ def main_window(page: ft.page):
                 ),
                 ft.Divider(color=ft.Colors.BLUE_GREY_700),
                 ft.ElevatedButton(
+                    "Inicio",
+                    icon = ft.Icons.HOME,
+                    width = 180,
+                    on_click = mostrar_inicio
+                ),
+                ft.ElevatedButton(
                     "Libros",
-                    icon = ft.icons.BOOK,
-                    width=100,
-                    on_click = insertar_libro
+                    icon = ft.Icons.BOOK,
+                    width=180,
+                    on_click = mostrar_insertar_libro
                 ),
                 ft.ElevatedButton(
                     "Usuarios",

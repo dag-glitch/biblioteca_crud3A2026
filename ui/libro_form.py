@@ -1,6 +1,6 @@
 import flet as ft
 
-def libro_form():
+def libro_form(regresar):
     titulo_input = ft.TextField(
         label = "Titulo del libro: ",
         width = 400 
@@ -29,7 +29,7 @@ def libro_form():
     def guardar_libro(e):
         #Recupera los valores de los Textfirld
         titulo = titulo_input.value
-        autor = autor_input.values
+        autor = autor_input.value
         isbn = isbn_input.value
 
         if titulo == "" or autor == "" or isbn== "":
@@ -38,7 +38,7 @@ def libro_form():
         else: 
             mensaje.value = f"Libro '{titulo}' listo para insertar"
             print(f"Titulo: '{titulo}', Autor: '{autor}', ISBN: '{isbn}'")
-            mensaje.color = ft.colors.GREEN 
+            mensaje.color = ft.Colors.GREEN 
             titulo_input.value = ""
             autor_input.value = ""
             isbn_input.value = ""
@@ -56,7 +56,7 @@ def libro_form():
             controls = [
                 ft.Text(
                     "Registrar nuevo libro",
-                    weigth = ft.FontWeight.BOLD
+                    weight = ft.FontWeight.BOLD
                 ),
                 ft.Text(
                     "Captura los datos basicos del libro",
@@ -67,12 +67,23 @@ def libro_form():
                 autor_input,
                 isbn_input,
 
-                ft.ElevatedButton(
-                    "Registrar libro",
-                    icon=ft.Icons.SAVE,
-                    on_click = guardar_libro
+                ft.Row(
+                    controls =[
+                        ft.ElevatedButton(
+                            "Registrar libro",
+                            icon=ft.Icons.SAVE,
+                            on_click = guardar_libro
 
-                )
+                        ),
+                        ft.OutlinedButton(
+                            "Regresar",
+                            icon = ft.Icons.ARROW_BACK,
+                            on_click = lambda  e: regresar()
+
+                        )
+                    ],
+                ),
+                mensaje 
             ],
             spacing = 15
 
